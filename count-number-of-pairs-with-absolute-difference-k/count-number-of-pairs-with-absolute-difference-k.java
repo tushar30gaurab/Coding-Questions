@@ -14,8 +14,8 @@ class Solution {
     }
 }
 
-// O(N) Solution - Count Sort Technique
 
+// O(N) Solution - Count Sort Technique
 class Solution {
     public int countKDifference(int[] nums, int k) {
         
@@ -31,6 +31,28 @@ class Solution {
             count += arr[i]*arr[i-k]; // main step - pay attention!
         }
         
+        return count;
+    }
+}
+
+
+//O(N) Solution - using HashMap
+class Solution {
+    public int countKDifference(int[] nums, int k) {
+        
+        int count=0;
+        Map<Integer, Integer> map = new HashMap<>();
+        
+        for(int i=0; i<nums.length; i++){
+            
+            if(map.containsKey(nums[i]+k)){
+                count += map.get(nums[i]+k);
+            }
+            if(map.containsKey(nums[i]-k)){
+                count += map.get(nums[i]-k);
+            }
+            map.put(nums[i], map.getOrDefault(nums[i], 0)+1);
+        }
         return count;
     }
 }
