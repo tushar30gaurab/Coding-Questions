@@ -8,6 +8,9 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+
+// Iterative Approach
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         
