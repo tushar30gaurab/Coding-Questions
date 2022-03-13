@@ -1,14 +1,16 @@
+import java.util.Map;
 class Solution {
     public int numIdenticalPairs(int[] nums) {
         
-        int count=0;
+        Map<Integer, Integer> hm = new HashMap<>();
+        int result=0;
         
-        for(int i=0; i<nums.length; i++){
-            for(int j = nums.length-1; j>i; j--){
-                if(nums[i]==nums[j])
-                    count++;
-            }
+        for(int element : nums){
+            int avail = hm.getOrDefault(element, 0);
+            result = result+avail;
+            hm.put(element, avail+1);
         }
-        return count;
+        
+        return result;
     }
 }
