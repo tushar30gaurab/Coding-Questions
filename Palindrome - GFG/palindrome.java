@@ -28,21 +28,18 @@ class GFG
 
 class Solution
 {
-    public String is_palindrome(int x)
+    public String is_palindrome(int n)
     {
-        int sign = x<0 ? -1 : 1;
-        int n = Math.abs(x);
         // Code here
         int temp = n;
-        int reverse = 0;
+        int result = 0;
         
-        while(temp>0) {
+        while(temp>0){
             int d = temp%10;
-            reverse = reverse*10 + d;
+            result = result*10 + d;
             temp = temp/10;
         }
-        reverse = reverse * sign;
         
-        return (reverse == x) ? "Yes" : "No";
+        return (result == n) ? "Yes" : "No" ;
     }
 }
